@@ -16,17 +16,15 @@
 
 package org.wso2.carbon.uuf.renderablecreator.hbs.helpers.runtime;
 
-import java.io.IOException;
-import java.util.Map;
-import java.util.Properties;
-
 import com.github.jknack.handlebars.Helper;
-
+import com.github.jknack.handlebars.Options;
 import org.wso2.carbon.uuf.core.Lookup;
 import org.wso2.carbon.uuf.core.RequestLookup;
 import org.wso2.carbon.uuf.renderablecreator.hbs.core.HbsRenderable;
 
-import com.github.jknack.handlebars.Options;
+import java.io.IOException;
+import java.util.Map;
+import java.util.Properties;
 
 public class I18nHelper implements Helper<String> {
 	

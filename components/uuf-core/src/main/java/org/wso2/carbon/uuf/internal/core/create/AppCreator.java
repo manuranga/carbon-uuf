@@ -128,31 +128,33 @@ public class AppCreator {
                 .forEach(lookup::add);
 
         Yaml yaml = new Yaml();
+        Map<?, ?> bindingsConfig;
         try {
-            Map<?, ?> bindingsConfig = componentReference
+            bindingsConfig = componentReference
                     .getBindingsConfig()
                     .map(fileReference -> yaml.loadAs(fileReference.getContent(), Map.class))
                     .orElse(Collections.emptyMap());
-            addBindings(bindingsConfig, lookup, componentName);
         } catch (Exception e) {
             // Yaml.loadAs() throws an Exception
             throw new MalformedConfigurationException(
                     "Bindings configuration '" + componentReference.getBindingsConfig().get().getRelativePath() +
                             "' is malformed.", e);
         }
+        addBindings(bindingsConfig, lookup, componentName);
 
+        Map<?, ?> rawConfigurations;
         try {
-            Map<?, ?> rawConfigurations = componentReference
+            rawConfigurations = componentReference
                     .getConfigurations()
                     .map(fileReference -> yaml.loadAs(fileReference.getContent(), Map.class))
                     .orElse(new HashMap<>(0));
-            lookup.getConfiguration().merge(rawConfigurations);
         } catch (Exception e) {
             // Yaml.loadAs() throws an Exception
             throw new MalformedConfigurationException(
                     "Configuration '" + componentReference.getConfigurations().get().getRelativePath() +
                             "' is malformed.", e);
         }
+        lookup.getConfiguration().merge(rawConfigurations);
 
         if (!componentReference.getI18nFiles().isEmpty()) {
             lookup.add(componentReference.getI18nFiles());
@@ -237,9 +239,10 @@ public class AppCreator {
         RenderableCreator renderableCreator = getRenderableCreator(pageReference.getRenderingFile());
         RenderableCreator.PageRenderableData prd = renderableCreator.createPageRenderable(pageReference, classLoader);
         UriPatten uriPatten = new UriPatten(pageReference.getPathPattern());
-        if (prd.getLayoutName().isPresent()) {
+        Optional<String> layoutName1 = prd.getLayoutName();
+        if (layoutName1.isPresent()) {
             // This page has a layout.
-            String layoutName = prd.getLayoutName().get();
+            String layoutName = layoutName1.get();
             Optional<Layout> layout = lookup.getLayoutIn(componentName, layoutName);
             if (layout.isPresent()) {
                 return new Page(uriPatten, prd.getRenderable(), prd.isSecured(), layout.get());

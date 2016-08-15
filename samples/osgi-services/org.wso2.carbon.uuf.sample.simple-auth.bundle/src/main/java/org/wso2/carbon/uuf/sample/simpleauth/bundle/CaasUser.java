@@ -40,8 +40,8 @@ public class CaasUser implements User {
         Permission permission = new Permission(resourceUri, action);
         try {
             return principal.getUser().isAuthorized(permission);
-         //TODO catch generic carbon-security exception once confirmed by the identity team
         } catch (Exception e) {
+            //TODO: catch generic carbon-security exception once confirmed by the identity team
         }
         return false;
     }

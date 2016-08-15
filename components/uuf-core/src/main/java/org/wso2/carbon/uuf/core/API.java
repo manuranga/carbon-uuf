@@ -19,11 +19,11 @@ package org.wso2.carbon.uuf.core;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.reflect.MethodUtils;
 import org.wso2.carbon.uuf.api.auth.Session;
-import org.wso2.carbon.uuf.spi.auth.User;
 import org.wso2.carbon.uuf.exception.HttpErrorException;
 import org.wso2.carbon.uuf.exception.PageRedirectException;
 import org.wso2.carbon.uuf.exception.UUFException;
 import org.wso2.carbon.uuf.internal.core.auth.SessionRegistry;
+import org.wso2.carbon.uuf.spi.auth.User;
 
 import javax.naming.Binding;
 import javax.naming.Context;
@@ -72,14 +72,14 @@ public class API {
             initialContext = new InitialContext();
         } catch (NamingException e) {
             throw new UUFException(
-                    "Cannot create the JNDI initial context when calling OSGi service '" + serviceClassName + "'.");
+                    "Cannot create the JNDI initial context when calling OSGi service '" + serviceClassName + "'.", e);
         }
 
         try {
             serviceInstance = initialContext.lookup("osgi:service/" + serviceClassName);
         } catch (NamingException e) {
             throw new UUFException(
-                    "Cannot find any OSGi service registered with the name '" + serviceClassName + "'.");
+                    "Cannot find any OSGi service registered with the name '" + serviceClassName + "'.", e);
         }
 
         try {

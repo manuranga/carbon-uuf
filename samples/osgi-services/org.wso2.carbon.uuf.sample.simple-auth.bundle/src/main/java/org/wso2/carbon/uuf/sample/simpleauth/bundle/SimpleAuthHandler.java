@@ -23,11 +23,10 @@ import org.wso2.carbon.kernel.context.PrivilegedCarbonContext;
 import org.wso2.carbon.kernel.utils.Utils;
 import org.wso2.carbon.messaging.CarbonMessage;
 import org.wso2.carbon.messaging.DefaultCarbonMessage;
-
 import org.wso2.carbon.security.caas.api.CarbonPrincipal;
 import org.wso2.carbon.security.caas.api.ProxyCallbackHandler;
-
 import org.wso2.carbon.uuf.api.auth.Session;
+
 import javax.security.auth.login.LoginContext;
 import javax.security.auth.login.LoginException;
 import java.util.Base64;

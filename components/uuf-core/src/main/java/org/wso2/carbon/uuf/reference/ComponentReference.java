@@ -16,10 +16,10 @@
 
 package org.wso2.carbon.uuf.reference;
 
-import java.util.Optional;
-import java.util.Set;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Properties;
+import java.util.Set;
 import java.util.stream.Stream;
 
 public interface ComponentReference {

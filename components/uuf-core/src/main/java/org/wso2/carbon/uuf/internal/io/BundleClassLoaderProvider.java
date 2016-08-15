@@ -47,13 +47,13 @@ import java.util.jar.Manifest;
 public class BundleClassLoaderProvider implements ClassLoaderProvider {
 
     private static final String DUMMY_CLASS_NAME = "DummyComponentBundle.class";
-    private static byte[] dummyBundleClassByteCodes;
+    private static final byte[] dummyBundleClassByteCodes;
 
     static {
         try {
             dummyBundleClassByteCodes = DummyBundleClass.dump();
         } catch (Exception e) {
-            throw new UUFException("Cannot create the dummy class for OSGi bundle creation.");
+            throw new UUFException("Cannot create the dummy class for OSGi bundle creation.", e);
         }
     }
 

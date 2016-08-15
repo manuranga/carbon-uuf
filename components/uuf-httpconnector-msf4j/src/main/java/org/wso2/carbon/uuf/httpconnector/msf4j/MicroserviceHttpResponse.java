@@ -30,15 +30,11 @@ import java.util.Map;
  */
 public class MicroserviceHttpResponse implements HttpResponse {
 
-    private int status;
+    private final Map<String, String> headers = new HashMap<>();
+    private int status = 200;
+
     private Object content;
     private String contentType;
-    private Map<String, String> headers;
-
-    public MicroserviceHttpResponse() {
-        this.status = 200;
-        this.headers = new HashMap<>();
-    }
 
     @Override
     public void setStatus(int statusCode) {

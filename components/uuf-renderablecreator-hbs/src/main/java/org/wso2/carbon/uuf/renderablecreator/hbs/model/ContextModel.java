@@ -24,7 +24,7 @@ import java.util.Map;
 
 public class ContextModel extends MapModel {
 
-    private Context parentContext;
+    private final Context parentContext;
 
     public ContextModel(Context context) {
         this(context, new HashMap<>());

@@ -133,10 +133,6 @@ public class MicroserviceHttpRequest implements HttpRequest {
         }
     }
 
-    private String constructUrl(boolean isSecured, String localAddr, String localPort, String uri) {
-        return "http" + ((isSecured) ? "s" : "") + "://" + localAddr + ":" + localPort + uri;
-    }
-
     @Override
     public String getUrl() {
         return url;

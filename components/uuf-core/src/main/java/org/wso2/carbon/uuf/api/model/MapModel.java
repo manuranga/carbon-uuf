@@ -25,7 +25,7 @@ import java.util.Map;
  */
 public class MapModel implements Model {
 
-    private Map<String, Object> map;
+    private final Map<String, Object> map;
 
     public MapModel(Map<String, Object> map) {
         this.map = map;

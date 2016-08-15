@@ -16,7 +16,6 @@
 
 package org.wso2.carbon.uuf.core;
 
-import org.wso2.carbon.uuf.internal.util.NameUtils;
 import org.wso2.carbon.uuf.internal.util.UriUtils;
 import org.wso2.carbon.uuf.spi.Renderable;
 
@@ -25,7 +24,6 @@ import java.util.Objects;
 public class Layout {
 
     private final String name;
-    private final String simpleName;
     private final Renderable renderer;
 
     /**
@@ -34,16 +32,11 @@ public class Layout {
      */
     public Layout(String name, Renderable renderer) {
         this.name = name;
-        this.simpleName = NameUtils.getSimpleName(name);
         this.renderer = renderer;
     }
 
     public String getName() {
         return name;
-    }
-
-    public String getSimpleName() {
-        return simpleName;
     }
 
     public String render(Lookup lookup, RequestLookup requestLookup, API api) {

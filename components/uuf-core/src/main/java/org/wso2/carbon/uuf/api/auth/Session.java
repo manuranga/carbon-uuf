@@ -17,13 +17,13 @@
 package org.wso2.carbon.uuf.api.auth;
 
 import org.wso2.carbon.uuf.core.Theme;
+import org.wso2.carbon.uuf.spi.auth.User;
 
 import java.io.Serializable;
 import java.security.SecureRandom;
 import java.util.Base64;
 import java.util.Objects;
 import java.util.concurrent.ThreadLocalRandom;
-import org.wso2.carbon.uuf.spi.auth.User;
 
 /**
  * Provides a way to identify a user across more than one page request or visit to a Web site and to store information

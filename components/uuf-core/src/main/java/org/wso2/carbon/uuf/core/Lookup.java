@@ -24,8 +24,8 @@ import org.wso2.carbon.uuf.internal.util.NameUtils;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
-import java.util.Set;
 import java.util.Properties;
+import java.util.Set;
 
 public class Lookup {
 

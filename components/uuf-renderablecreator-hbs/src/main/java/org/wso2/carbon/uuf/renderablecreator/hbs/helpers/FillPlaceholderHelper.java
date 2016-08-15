@@ -32,10 +32,6 @@ public abstract class FillPlaceholderHelper<T> implements Helper<T> {
         this.placeholder = placeholder;
     }
 
-    public Placeholder getPlaceholder() {
-        return placeholder;
-    }
-
     protected void addToPlaceholder(String value, Options handlebarsOptions) {
         RequestLookup requestLookup = handlebarsOptions.data(HbsRenderable.DATA_KEY_REQUEST_LOOKUP);
         requestLookup.addToPlaceholder(placeholder, value);
