@@ -54,6 +54,9 @@ public class Component {
         this.path = path;
     }
 
+    /**
+     * @return Fully qualified name of the component
+     */
     public String getName() {
         return name;
     }
@@ -62,6 +65,15 @@ public class Component {
         return version;
     }
 
+    /**
+     * Context of the component, it will prefix the URL any page served form the component.
+     * Root component will always return "/root", but doesn't appear in URL.
+     * <p>
+     * It will also be used to construct the public URLs and fragment URLs of the component.
+     * In this case "/root" will be used.
+     *
+     * @return context path
+     */
     public String getContextPath() {
         return contextPath;
     }
